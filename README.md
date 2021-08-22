@@ -20,7 +20,7 @@ So for this project I used the legit google authentication so it only makes sens
 
 So going back to my ContextProvider (I called my ContextProvider StateProvider) because when I created context with createContext I called it StateContext. So my StateProvider accepts three props, children, reducer, and initialState and it returns a StateContext.Provider. Think of the StateContext.Provider as bus holds both the current state and the trigger function (dispatch) for a state manipulation (done by reducer). It's easy to lose track so I'll remind anyone who's reading that when dispatch triggers the reducer and the reducer executes the action (based on the action type) the result is a new state. Think of the StateProvider as the one that Provides the Context to whoever it wraps. Note my context is state. Hence the reason I pass StateContext to useContext and set it equal to a const called useStateValue. 
 
-###### StateProvider.js (This is where declaraed my context and defined it)
+###### StateProvider.js (This is where declaraed and created my context and where i defined my context provider)
 ```
 import React, { createContext, useContext, useReducer } from "react";
 
