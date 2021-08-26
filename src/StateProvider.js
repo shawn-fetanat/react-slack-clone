@@ -24,3 +24,29 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+
+//Login.js
+
+import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
+
+function Login() {
+  const [state, dispatch] = useStateValue();
+
+  const signIn = (e) => {
+    e.preventDefault();
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log(result);
+        dispatch({
+          //dispatch SET_USER ACTION
+          type: actionTypes.SET_USER,
+          user: result.user, //push user into the data layer
+        });
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
